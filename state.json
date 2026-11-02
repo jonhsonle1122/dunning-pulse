@@ -1,0 +1,32 @@
+{
+  "schema_version": 3,
+  "slug": "dunning-pulse",
+  "idea_id": "IDEA-01",
+  "name": "DunningPulse",
+  "mode": "LAUNCH",
+  "gate": "GATE_3_RESOLVED",
+  "status": "LAUNCH_PREPARED",
+  "approved_scope": "LAUNCH IDEA-01 approved by user. Launch readiness checklist validated, 30-day go-to-market plan generated, marketing asset pack prepared, privacy/terms documented, test suite passing 100%.",
+  "budget_limit_usd": 50,
+  "actual_spend_usd": 0,
+  "target_timeline_weeks": "2-4",
+  "last_updated_utc": "2026-11-02T13:58:00Z",
+  "artifacts": [
+    "output/launch-report.md",
+    "output/marketing-plan.md",
+    "output/launch-checklist.md",
+    "output/validation-report.md",
+    "output/mvp-plan.md",
+    "projects/dunning-pulse/launch-report.md",
+    "projects/dunning-pulse/marketing-plan.md",
+    "projects/dunning-pulse/launch-checklist.md",
+    "projects/dunning-pulse/PRIVACY.md",
+    "projects/dunning-pulse/TERMS.md",
+    "projects/dunning-pulse/sources.md",
+    "projects/dunning-pulse/brief.md",
+    "projects/dunning-pulse/decisions.md",
+    "projects/dunning-pulse/tasks.md",
+    "projects/dunning-pulse/handoff.md"
+  ],
+  "blockers": []
+}
