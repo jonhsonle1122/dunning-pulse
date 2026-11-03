@@ -13,11 +13,11 @@
 
 | Resource / Endpoint | Target / URL | Verification Status |
 | :--- | :--- | :---: |
-| **Landing Page & Churn Calculator** | `https://dunningpulse.com/` (Local: `http://localhost:3000`) | VERIFIED |
-| **Founder Recovery Dashboard** | `https://dunningpulse.com/dashboard` | VERIFIED |
-| **Settings & Live Preview Customizer**| `https://dunningpulse.com/dashboard/settings` | VERIFIED |
-| **Stripe Webhook Listener** | `/api/webhooks/stripe?projectId=dp_live_xxxx` | VERIFIED (HMAC-SHA256 signature tested) |
-| **In-App Banner Status API** | `/api/v1/customer-status?projectId=...&customerId=...` | VERIFIED (CORS & Edge Cache configured) |
+| **Live Production Web App** | `https://dunning-pulse-theta.vercel.app/` | **LIVE & VERIFIED (Vercel)** |
+| **Live Founder Recovery Dashboard** | `https://dunning-pulse-theta.vercel.app/dashboard` | **LIVE & VERIFIED** |
+| **Live Settings & Banner Customizer**| `https://dunning-pulse-theta.vercel.app/dashboard/settings` | **LIVE & VERIFIED** |
+| **Stripe Webhook Listener** | `/api/webhooks/stripe?projectId=dp_live_demo123` | VERIFIED |
+| **In-App Banner Status API** | `/api/v1/customer-status` | VERIFIED (CORS & Edge Cache configured) |
 | **Embeddable In-App Banner Script** | `/banner.js` (Verified at **2.87 KB** < 4KB limit) | VERIFIED (Vanilla JS, 0 dependencies) |
 
 ---

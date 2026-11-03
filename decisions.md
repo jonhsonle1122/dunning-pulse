@@ -10,6 +10,15 @@
 - **Approver Quote**: "BUILD IDEA-01"
 - **State Change**: Mode set to `BUILD`.
 
+## 2026-11-03 — Production Deployment Live on Vercel
+- **Decision**: Successfully deployed production build to Vercel.
+- **Production URL**: `https://dunning-pulse-theta.vercel.app`
+- **Verified Pages**:
+  - Landing Page & Churn Loss Calculator: `https://dunning-pulse-theta.vercel.app/`
+  - Founder Recovery Dashboard: `https://dunning-pulse-theta.vercel.app/dashboard`
+  - Settings & Live In-App Banner Preview: `https://dunning-pulse-theta.vercel.app/dashboard/settings`
+- **Budget**: Actual spend $0.00 USD ($50 budget intact). Ready for GROW mode.
+
 ## 2026-11-02 — GitHub Repository Published
 - **Decision**: Pushed production-ready MVP codebase to official GitHub repository: `https://github.com/jonhsonle1122/dunning-pulse.git`.
 - **Result**: Branch `main` successfully tracked and pushed. All 44 files, documentation, and tests live on GitHub.
