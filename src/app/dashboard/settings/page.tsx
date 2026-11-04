@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Check, Copy, Eye, Layout, Lock, Save, ShieldCheck } from 'lucide-react';
 
 export default function SettingsPage() {
   const [projectId] = useState('dp_live_demo123');
+  const [origin, setOrigin] = useState('https://dunning-pulse-theta.vercel.app');
   const [bannerText, setBannerText] = useState(
     'Your subscription renewal failed. Please update your payment method to maintain uninterrupted service.'
   );
@@ -17,9 +18,15 @@ export default function SettingsPage() {
   const [copiedWebhook, setCopiedWebhook] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
 
-  const snippetCode = `<script\n  src="https://cdn.dunningpulse.com/banner.js"\n  data-project-id="${projectId}"\n  data-customer-id="{{stripe_customer_id}}"\n  async>\n</script>`;
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setOrigin(window.location.origin);
+    }
+  }, []);
 
-  const webhookUrl = `https://dunningpulse.com/api/webhooks/stripe?projectId=${projectId}`;
+  const snippetCode = `<script\n  src="${origin}/banner.js"\n  data-project-id="${projectId}"\n  data-customer-id="{{stripe_customer_id}}"\n  async>\n</script>`;
+
+  const webhookUrl = `${origin}/api/webhooks/stripe?projectId=${projectId}`;
 
   const handleCopySnippet = () => {
     navigator.clipboard.writeText(snippetCode);
@@ -231,11 +238,14 @@ export default function SettingsPage() {
               {/* Mock App Window */}
               <div className="border border-slate-300 rounded-xl overflow-hidden shadow-lg bg-white">
                 {/* Browser bar */}
-                <div className="h-8 bg-slate-100 border-b border-slate-200 px-3 flex items-center gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-rose-400" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
-                  <div className="mx-auto text-[11px] font-mono text-slate-400">app.yoursaas.com/dashboard</div>
+                <div className="h-8 bg-slate-100 border-b border-slate-200 px-3 flex items-center justify-between text-[11px] text-slate-500 font-mono">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-rose-400" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                  </div>
+                  <span>Preview: app.customer-website.com</span>
+                  <span className="text-[10px] text-slate-400 font-sans font-medium bg-slate-200 px-1.5 py-0.5 rounded">Mô phỏng</span>
                 </div>
 
                 {/* Banner Render Preview */}
@@ -260,17 +270,33 @@ export default function SettingsPage() {
                   </div>
                 )}
 
-                {/* Dummy App Content */}
-                <div className="p-6 bg-slate-50/50 min-h-[300px] space-y-4">
-                  <div className="flex justify-between items-center pb-4 border-b border-slate-200">
-                    <div className="h-4 w-28 bg-slate-200 rounded" />
-                    <div className="h-7 w-20 bg-blue-500 rounded" />
+                {/* Mock Customer App Content */}
+                <div className="p-5 bg-slate-50/60 min-h-[260px] space-y-4">
+                  <div className="flex justify-between items-center pb-3 border-b border-slate-200">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded bg-slate-300 flex items-center justify-center text-[10px] font-bold text-slate-600">APP</div>
+                      <div className="text-xs font-bold text-slate-700">Customer SaaS Dashboard</div>
+                    </div>
+                    <div className="text-[11px] px-2 py-0.5 bg-blue-50 text-blue-600 rounded font-medium">Active User</div>
                   </div>
                   <div className="grid grid-cols-2 gap-3">
-                    <div className="h-20 bg-white border border-slate-200 rounded-lg p-3" />
-                    <div className="h-20 bg-white border border-slate-200 rounded-lg p-3" />
+                    <div className="p-3 bg-white border border-slate-200 rounded-lg">
+                      <div className="text-[10px] text-slate-400 font-semibold uppercase">Workspace API Usage</div>
+                      <div className="text-sm font-bold text-slate-800 mt-1">84,210 / 100k</div>
+                      <div className="w-full bg-slate-100 h-1.5 rounded-full mt-2 overflow-hidden">
+                        <div className="bg-blue-500 h-full w-[84%]" />
+                      </div>
+                    </div>
+                    <div className="p-3 bg-white border border-slate-200 rounded-lg">
+                      <div className="text-[10px] text-slate-400 font-semibold uppercase">Active Projects</div>
+                      <div className="text-sm font-bold text-slate-800 mt-1">12 Projects</div>
+                      <div className="text-[10px] text-emerald-600 mt-1">● All services normal</div>
+                    </div>
                   </div>
-                  <div className="h-32 bg-white border border-slate-200 rounded-lg p-3" />
+                  <div className="p-3 bg-white border border-slate-200 rounded-lg">
+                    <div className="text-[10px] text-slate-400 font-semibold uppercase mb-1">Recent Activity</div>
+                    <div className="text-xs text-slate-600">Logged in from Chrome (Windows) · 10m ago</div>
+                  </div>
                 </div>
               </div>
             </div>
