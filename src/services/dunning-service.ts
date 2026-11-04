@@ -79,7 +79,7 @@ export class DunningService {
       } catch {}
     }
 
-    const returnUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://dunningpulse.com';
+    const returnUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://dunning-pulse-theta.vercel.app';
     const portalSession = await createPaymentMethodUpdateSession({
       stripeSecretKey: stripeKey,
       customerId: stripeCustomerId,

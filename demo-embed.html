@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Khách Hàng (Demo Test Nhúng DunningPulse)</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 60px 20px 20px 20px;
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+    .card {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+      text-align: center;
+    }
+    h1 { color: #0f172a; margin-bottom: 12px; }
+    p { color: #64748b; line-height: 1.6; }
+    .badge {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <span class="badge">Trang web SaaS của khách hàng</span>
+    <h1>Xin chào, Alex Mercer!</h1>
+    <p>
+      Đây là trang web của khách hàng đang dùng phần mềm của bạn.
+    </p>
+    <p>
+      Vì tài khoản của Alex (<code>cus_demo_pastdue</code>) đang bị nợ tiền do thẻ visa hết hạn, 
+      chiếc banner màu đỏ của <strong>DunningPulse</strong> đã tự động xuất hiện ở mép trên cùng của màn hình!
+    </p>
+    <p>
+      👉 Hãy thử bấm vào nút <strong>"Update Payment Method"</strong> trên thanh màu đỏ ở đỉnh trang!
+    </p>
+  </div>
+
+  <!-- ĐOẠN MÃ NHÚNG DUNNINGPULSE -->
+  <script 
+    src="https://dunning-pulse-theta.vercel.app/banner.js" 
+    data-project-id="dp_live_demo123" 
+    data-customer-id="cus_demo_pastdue" 
+    async>
+  </script>
+
+</body>
+</html>
+

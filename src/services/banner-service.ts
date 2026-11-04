@@ -28,7 +28,7 @@ export class BannerService {
       } catch {}
     }
 
-    const returnUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://dunningpulse.com';
+    const returnUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://dunning-pulse-theta.vercel.app';
     let updateUrl = '#';
     try {
       const session = await createPaymentMethodUpdateSession({

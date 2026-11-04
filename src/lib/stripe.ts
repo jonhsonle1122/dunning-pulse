@@ -65,10 +65,11 @@ export async function createPaymentMethodUpdateSession(params: {
   const { stripeSecretKey, customerId, returnUrl } = params;
 
   // In test mode or when using mock keys:
-  if (stripeSecretKey.startsWith('sk_test_mock')) {
+  if (!stripeSecretKey || stripeSecretKey.startsWith('sk_test_mock') || stripeSecretKey === 'default' || stripeSecretKey === 'rk_test_sample_restricted_key') {
+    const host = process.env.NEXT_PUBLIC_APP_URL || 'https://dunning-pulse-theta.vercel.app';
     return {
       id: `bps_mock_${Date.now()}`,
-      url: `https://billing.stripe.com/p/session/test_${customerId}?flow=payment_method_update&return_url=${encodeURIComponent(returnUrl)}`,
+      url: `${host}/demo/stripe-portal?customerId=${encodeURIComponent(customerId)}&returnUrl=${encodeURIComponent(returnUrl)}`,
     };
   }
 
